@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+struct node
+    {
+    int data;
+    struct node *next;
+    }*start=NULL;
+
+void main() 
+    {
+    int num;
+    struct node *p,*temp;
+    
+    printf("Enter any negative number to end input\n");
+    scanf("%d",&num);
+    while(num>0)
+        {
+        p=malloc(sizeof(struct node));
+        if(start==NULL)
+            {
+            p->data=num;
+            start=p;
+            p->next=NULL;
+            }
+        
+        else
+            {
+            temp=start;
+            while(temp->next!=NULL)
+                {
+                temp=temp->next;
+                }
+            p->data=num;
+            p->next=NULL;
+            temp->next=p;
+            }
+        printf("Enter the number:");
+        scanf("%d",&num);
+        }
+    }
