@@ -2,33 +2,33 @@
 #include <stdlib.h>
 
 struct node 
-{
+    {
     int data;
     struct node *next;
-};
+    }*start=NULL;;
 
-struct node *start=NULL;
+
 
 void create()
-{
-    int x;
+    {
+    int num;
     struct node *temp;
-    printf(" enter the elements to be inserted");
-    scanf("%d", &x);
+    printf("enter the element to be inserted:");
+    scanf("%d",&num);
 
-    struct node * ptr= (struct node *)malloc (sizeof (struct node));
+    struct node *p=(struct node *)malloc(sizeof(struct node));
 
-    ptr->data=x;
-    ptr->next=NULL;
+    p->data=num;
+    p->next=NULL;
     
     if (start==NULL)
-        start=ptr; 
+        start=p; 
     else
     { 
         temp=start;
            while(temp->next!=NULL)
                temp=temp->next;
-            temp->next=ptr;
+            temp->next=p;
     }
 }
 
@@ -40,12 +40,12 @@ void traversal()
     printf("list is empty");
     
     else {
-    
+        printf("The list:\n");
         temp=start;
         while(temp!=NULL)
-        {  printf("%d\t", temp->data);
+        {  printf("%d ", temp->data);
              if(temp->next!=NULL)
-              printf("->");
+              printf(" ");
           
            temp=temp->next;
         }
@@ -57,39 +57,39 @@ void traversal()
 void insertAtbeg()
 {
     
-    int x;
+    int num;
     struct node *temp;
-    printf(" enter the elements to be inserted");
-    scanf("%d", &x);
+    printf(" enter the elements to be inserted:");
+    scanf("%d", &num);
 
-    struct node * ptr= (struct node *)malloc (sizeof (struct node));
+    struct node * p= (struct node *)malloc (sizeof (struct node));
 
-    ptr->data=x;
+    p->data=num;
     
-    ptr->next=start;
-    start=ptr;
+    p->next=start;
+    start=p;
     
 }
 
 void  insertAtPosition()
 {
-     int x,pos,i,c=0;
+     int num,pos,i,c=0;
     struct node *temp;
     printf(" enter the elements to be inserted");
-    scanf("%d", &x);
+    scanf("%d", &num);
        
-    struct node * ptr= (struct node *)malloc (sizeof (struct node));
+    struct node * p= (struct node *)malloc (sizeof (struct node));
 
-    ptr->data=x;
-    ptr->next=NULL;
+    p->data=num;
+    p->next=NULL;
     
     temp=start;
     while(temp!=NULL)
        { c++;
         temp=temp->next;}
         
-    printf("total no of nodes in list is %d", c);
-     printf(" enter the position in between 0 to %d", c-1);
+    printf("total no of nodes in list is %d\n", c);
+     printf(" enter the position in between 0 to %d:\n", c-1);
         scanf("%d", &pos);
     
     
@@ -98,16 +98,16 @@ void  insertAtPosition()
      
      else{ if (pos==0)
               { 
-                ptr->next=start;
-                start=ptr;
+                p->next=start;
+                start=p;
               }
               else
               {  
                 temp=start;
                 for(i=0;i<pos-1;i++)
                    temp=temp->next;
-                ptr->next=temp->next;
-                temp->next=ptr;
+                p->next=temp->next;
+                temp->next=p;
               }
                 
                 
