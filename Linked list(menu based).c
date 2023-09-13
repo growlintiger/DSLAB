@@ -13,7 +13,7 @@ void create()
 {
     int x;
     struct node *temp;
-    printf(" enter the elements to be inserted:");
+    printf(" enter the elements to be inserted");
     scanf("%d", &x);
 
     struct node * ptr= (struct node *)malloc (sizeof (struct node));
@@ -59,7 +59,7 @@ void insertAtbeg()
     
     int x;
     struct node *temp;
-    printf(" enter the elements to be inserted:");
+    printf(" enter the elements to be inserted");
     scanf("%d", &x);
 
     struct node * ptr= (struct node *)malloc (sizeof (struct node));
@@ -75,7 +75,7 @@ void  insertAtPosition()
 {
      int x,pos,i,c=0;
     struct node *temp;
-    printf(" enter the elements to be inserted:");
+    printf(" enter the elements to be inserted");
     scanf("%d", &x);
        
     struct node * ptr= (struct node *)malloc (sizeof (struct node));
@@ -85,12 +85,14 @@ void  insertAtPosition()
     
     temp=start;
     while(temp!=NULL)
-       { c++;
-        temp=temp->next;}
+        {
+            c++;
+            temp=temp->next;
+        }
         
-    printf("total no of nodes in list is %d\n", c);
-     printf(" enter the position in between 0 to %d:", c-1);
-        scanf("%d", &pos);
+    printf("total no of nodes in list is %d", c);
+    printf(" enter the position in between 0 to %d", c-1);
+    scanf("%d", &pos);
     
     
      if(start==NULL && pos!=0)
@@ -119,7 +121,7 @@ void  insertAfterElement()
 {
     int ele1,ele2;
     struct node *temp;
-    struct node ptr = (struct node)malloc(sizeof(struct node));
+    struct node *ptr = (struct node*)malloc(sizeof(struct node));
     printf("Enter the element after which you want to insert\n");
     scanf("%d",&ele1);
     printf("Enter the element you want to insert\n");
@@ -133,7 +135,7 @@ void  insertAfterElement()
         printf("List is empty");
     else
     {
-        while(temp->data!=ele1)
+        while(temp->data!=ele1 && temp!=NULL)
             temp=temp->next;
         if(temp==NULL)
             printf("Element not found");
@@ -147,7 +149,7 @@ void  insertAfterElement()
 
 int main()
 {   
-    printf("\n 1  create the list\n 2  For insertion at starting\n 3  For insertion at end\n 4  For insertion at any position \n 5 Traversal \n6 Insert after element\n");
+    printf("\n 1  create the list\n 2  For insertion at starting\n 3  For insertion at end\n 4  For insertion at any position \n 5 Traversal \n 6 For insertion after element\n");
     printf(" 7 To exit\n");
     int choice;
     while (1) 
@@ -176,6 +178,7 @@ int main()
                 break;
             case 7:
                 exit(1);
+                break;
             default:
                 printf("Incorrect Choice\n");
         }
